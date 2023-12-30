@@ -29,6 +29,12 @@ func LogError(e error) {
 	}
 }
 
+func LogErrorContext(e error, context ...string) {
+	if e != nil {
+		log.Error(e, context)
+	}
+}
+
 func PanicOnErrorFunc(f func() error) func() {
 	return func() {
 		err := f()
